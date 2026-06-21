@@ -11,10 +11,10 @@ import re
 from azure.ai.projects import AIProjectClient
 from azure.core.credentials import TokenCredential, AccessToken
 
-from .config import AZURE_ENDPOINT, AZURE_AGENT_ID, AZURE_API_KEY, AZURE_SUBSCRIPTION_ID, AZURE_RESOURCE_GROUP, AZURE_PROJECT_NAME
-from .ml_model import get_complete_prediction, predict_clearance_time
-from .routing import get_routing_with_detours
-from .database import SessionLocal, Event
+from config import AZURE_ENDPOINT, AZURE_AGENT_ID, AZURE_API_KEY, AZURE_SUBSCRIPTION_ID, AZURE_RESOURCE_GROUP, AZURE_PROJECT_NAME
+from ml_model import get_complete_prediction, predict_clearance_time
+from routing import get_routing_with_detours
+from database import SessionLocal, Event
 import datetime
 
 class DummyCredential(TokenCredential):

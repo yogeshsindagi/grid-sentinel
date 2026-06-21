@@ -20,14 +20,14 @@ import random
 import requests as http_requests
 from typing import List, Optional
 
-from .config import (
+from config import (
     AZURE_API_KEY, JWT_SECRET, JWT_ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES,
     GOOGLE_CLIENT_ID, ADMIN_USERNAME, ADMIN_PASSWORD, TOMTOM_API_KEY
 )
-from .database import init_db, get_db, User, Report, Event, Setting, is_sqlite, SessionLocal
-from .ml_model import load_models_sync, get_complete_prediction, calculate_impact_radius
-from .routing import get_routing_with_detours, get_route, haversine_distance
-from .ai_agent import parse_report_with_ai, run_chat_agent, generate_suggestions_with_ai
+from database import init_db, get_db, User, Report, Event, Setting, is_sqlite, SessionLocal
+from ml_model import load_models_sync, get_complete_prediction, calculate_impact_radius
+from routing import get_routing_with_detours, get_route, haversine_distance
+from ai_agent import parse_report_with_ai, run_chat_agent, generate_suggestions_with_ai
 
 security = HTTPBearer(auto_error=False)
 
@@ -192,7 +192,7 @@ async def lifespan(app: FastAPI):
         try:
             if db.query(User).count() == 0:
                 print("[WARN] Database is empty. Seeding admin user and settings...")
-                from .import_data import import_all
+                from import_data import import_all
                 import_all()
         finally:
             db.close()

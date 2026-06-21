@@ -6,8 +6,8 @@ Creates tables, admin user, and default settings on first run.
 
 import os
 from sqlalchemy.orm import Session
-from .database import init_db, SessionLocal, User, Setting
-from .config import ADMIN_USERNAME, ADMIN_PASSWORD
+from database import init_db, SessionLocal, User, Setting
+from config import ADMIN_USERNAME, ADMIN_PASSWORD
 
 
 def import_all():

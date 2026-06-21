@@ -16,7 +16,7 @@ import os
 import warnings
 import datetime
 from sqlalchemy.orm import Session
-from .database import Event
+from database import Event
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
